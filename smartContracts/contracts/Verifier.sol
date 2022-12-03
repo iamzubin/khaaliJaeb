@@ -40,26 +40,33 @@ contract verifier {
 
     mapping(address => Proof) public employeeView;
 
-    function addExperience(address user, string proof, string skill, uint256 duration) public OnlyUser(user) {        
+    function addExperience(address user, string memory proof, string memory skill, uint256 duration) public OnlyUser(user) {        
         employeeView[user] = Proof(proof, skill, duration);
-        if(employer[user].skill == skill) {
-            employer[user].duration += duration;
+        if(compareStrings(employeeView[user].skill,skill)) {
+            employerView[user].duration += duration;
         } else {
-            employerView[user] = Expereience(skill, duration);
+            employerView[user] = Experience(skill, duration);
         }
     }
 
-    function deleteExperience(address user, string proof) public OnlyUser(user) {
+    function deleteExperience(address user, string memory proof) public OnlyUser(user) {
         uint256 duration = employeeView[user].duration;
-        string skill = employeeView[user].skill;
-        delete employeeView[user];
+        string memory skill = employeeView[user].skill;
 
-        if(employerView[user].skill == skill) {
+        if(compareStrings(employeeView[user].proof,proof)) {
+            delete employeeView[user];
+        }
+
+        if(compareStrings(employerView[user].skill,skill)) {
             employerView[user].duration -= duration;
         }
     }
 
-    function getExperiences(address user) public returns(Experience[]) {
+    function getExperiences(address user) public view returns(Experience memory) {
         return employerView[user];
+    }
+
+    function compareStrings(string memory a, string memory b) public pure returns (bool) {
+        return (keccak256(abi.encodePacked((a))) == keccak256(abi.encodePacked((b))));
     }
 }
