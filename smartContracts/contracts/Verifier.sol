@@ -1,6 +1,17 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.9;
-pragma abicoder v2;
+pragma solidity ^0.8.0;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "./0xPolygonID/GenesisUtils.sol";
+import "./0xPolygonID/ICircuitValidator.sol";
+import "./0xPolygonID/ZKPVerifier.sol";
+
+
+contract khaaliJaebVerifier is ZKPVerifier {
+
+    uint64 public transfer_request_id = 1;
+
+}
 
 contract verifier {
 
