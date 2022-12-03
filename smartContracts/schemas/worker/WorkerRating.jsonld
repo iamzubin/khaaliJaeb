@@ -1,0 +1,16 @@
+{
+  "schema": "WorkerRating",
+  "mandatoryExpiration": false,
+  "attributes": [
+    {
+      "name": "totalRatings",
+      "type": "number",
+      "description": "Total number of ratings received by a bounty worker"
+    },
+    {
+      "name": "weightedRating",
+      "type": "number",
+      "description": "The weighted rating of the worker"
+    }
+  ]
+}

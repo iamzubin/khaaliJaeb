@@ -1,0 +1,16 @@
+{
+  "schema": "EmployeeData",
+  "mandatoryExpiration": false,
+  "attributes": [
+    {
+      "name": "startDate",
+      "type": "date",
+      "description": "Start date of the employee"
+    },
+    {
+      "name": "organisation",
+      "type": "number",
+      "description": "Organisation number of the employer"
+    }
+  ]
+}
