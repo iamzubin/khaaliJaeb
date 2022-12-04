@@ -1,0 +1,16 @@
+{
+  "schema": "WorkerData",
+  "mandatoryExpiration": false,
+  "attributes": [
+    {
+      "name": "bountyNumber",
+      "type": "number",
+      "description": "The token id of the bounty"
+    },
+    {
+      "name": "startDate",
+      "type": "date",
+      "description": "The date this bounty was started"
+    }
+  ]
+}

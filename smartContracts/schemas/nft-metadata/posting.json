@@ -1,0 +1,29 @@
+{
+  "name": "string",
+  "orgCode": 1,
+  "description": "string",
+  "startDate": "20221204",
+  "hourlyRate": 20,
+  "skills": [
+    {
+      "skill": "python",
+      "value": 20
+    },
+    {
+      "skill": "javascript",
+      "value": 20
+    },
+    {
+      "skill": "solidity",
+      "value": 20
+    },
+    {
+      "skill": "rust",
+      "value": 20
+    },
+    {
+      "skill": "go",
+      "value": 20
+    }
+  ]
+}

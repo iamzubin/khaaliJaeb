@@ -1,0 +1,16 @@
+{
+  "schema": "WorkerPayment",
+  "mandatoryExpiration": false,
+  "attributes": [
+    {
+      "name": "bountyNumber",
+      "type": "number",
+      "description": "The token id of the bounty"
+    },
+    {
+      "name": "bountyPayment",
+      "type": "number",
+      "description": "The value of the bounty in USD"
+    }
+  ]
+}

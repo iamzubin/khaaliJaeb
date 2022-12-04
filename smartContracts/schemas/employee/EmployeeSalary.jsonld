@@ -1,0 +1,16 @@
+{
+  "schema": "EmployeeSalary",
+  "mandatoryExpiration": false,
+  "attributes": [
+    {
+      "name": "hourlyRate",
+      "type": "number",
+      "description": "Hourly rate of the employee"
+    },
+    {
+      "name": "hoursPerWeek",
+      "type": "number",
+      "description": "Hours per week the employee works"
+    }
+  ]
+}
