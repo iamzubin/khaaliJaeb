@@ -1,0 +1,16 @@
+{
+  "schema": "EmployeeRating",
+  "mandatoryExpiration": false,
+  "attributes": [
+    {
+      "name": "totalRatings",
+      "type": "number",
+      "description": "Total number of ratings received by an employee"
+    },
+    {
+      "name": "weightedRating",
+      "type": "number",
+      "description": "The weighted rating of the employee"
+    }
+  ]
+}
