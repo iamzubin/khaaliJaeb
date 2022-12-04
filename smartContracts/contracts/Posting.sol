@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.9;
+pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
@@ -29,7 +29,7 @@ contract Posting is ERC721, ERC721Burnable, Ownable {
     }
 
     constructor(address expereinceAddress) ERC721("khaaliJaebBounty", "kJB") {
-        EXPEREINCE = IExpereince(expereinceAddress);
+        EXPEREINCE = IExperience(expereinceAddress);
     }
 
     function safeMint(address to) public onlyOwner {
@@ -39,20 +39,21 @@ contract Posting is ERC721, ERC721Burnable, Ownable {
     }
 
     function addJobPosting() public onlyOwner returns(jobPosting memory) {
+        uint256 tokenId = _tokenIdCounter.current() + 1;
         offerToEmployer[tokenId] = jobPosting(msg.sender, true, address(0), _tokenIdCounter.current());
         safeMint(msg.sender);
         return offerToEmployer[tokenId];
     }
 
     function closeJobPosting(uint256 tokenId) public onlyEmployer(tokenId) {
-        require(offerToEmployer[tokenId].postStatus);
-        offerToEmployer[tokenId].postStatus = false;
+        require(offerToEmployer[tokenId].active);
+        offerToEmployer[tokenId].active = false;
         _burn(tokenId);
     }
 
     function fulfillPosting(uint256 tokenId) public onlyEmployer(tokenId) {
-        require(offerToEmployer[tokenId].postStatus);
-        ( ,address assignee) = EXPEREINCE.startExperience();
+        require(offerToEmployer[tokenId].active);
+        ( ,address assignee) = EXPEREINCE.startExperience(tokenId);
         offerToEmployer[tokenId].assignee = assignee;
     }
 }
