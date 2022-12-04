@@ -1,4 +1,4 @@
-export async function signin() {
+export async function getBearer() {
   const credentials = {
     'email': process.env.PID_USERNAME,
     'password': process.env.PID_PASSWORD
