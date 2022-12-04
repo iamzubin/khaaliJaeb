@@ -13,13 +13,14 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Hello There!!!
+          khaaliJaen
         </h1>
         <h3>
-          KhaaliJaeb
+          empty pockets, full pockets
         </h3>
       </main>
-
+      <footer className={styles.footer}>
+      </footer>
     </div>
   )
 }
