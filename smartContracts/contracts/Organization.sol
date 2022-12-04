@@ -41,6 +41,7 @@ contract Organization is ZKPVerifier, ERC721, ERC721Burnable, Ownable {
     ) internal virtual {
         super._afterProofSubmit(requestId, inputs, validator);
         safeMint(to, link);
+        
     }
 
     function addOrganizationLink(bytes memory link) public onlyEmployer(tokenId) {
