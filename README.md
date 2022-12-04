@@ -1,3 +1,3 @@
-# khaliJaeb-EIH2022
+# khaaliJaeb
+> empty pockets, full wallets
 
-Hackathon project for eth india 2022
